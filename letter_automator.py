@@ -1,7 +1,7 @@
 from datetime import datetime
 
 
-def edit_letter(company, position):
+def edit_letter(today, company, position):
     template = 'template.txt'
     file = 'letter.txt'
 
@@ -9,7 +9,7 @@ def edit_letter(company, position):
         lines = letter.readlines()
 
     joined = ''.join(lines)
-    formatted = joined.format(company=company, position=position)
+    formatted = joined.format(today=today, company=company, position=position)
 
     with open(file, 'w') as letter:
         letter.write(formatted)
@@ -24,4 +24,4 @@ today = (
 company = input('What company are you applying to? ')
 position = input('What is the position? ')
 
-edit_letter(company, position)
+edit_letter(today, company, position)

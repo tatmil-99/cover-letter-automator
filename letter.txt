@@ -1,8 +1,8 @@
 Tatien Miller
-Software Back end developer
+Software Developer
 tatmil99@gmail.com
 
-today
+8/28/2023
 
 Dear Hiring Manager, 
 
@@ -11,9 +11,9 @@ computers, and just about anything tech related. I am looking for a role
 that will challenge me and allow me to grow as a natural problem solver. 
 I enjoy troubleshooting and solving problems (traits that drew me to programming) 
 and I feel my current skills would allow me to be successful in this role. 
-I’m confident I would be a great fit as an employee for Firefox 
+I’m confident I would be a great fit as an employee for Temp Stop 
 and could responsibly fulfill the job duties and requirements of the 
-Backend Developer job vacancy. 
+LAMP Developer job vacancy. 
 
 My education is somewhat diverse and includes knowledge from various institutes 
 and areas of interest. Most recently, I am a graduate of DigitalCrafts, 
@@ -36,7 +36,7 @@ I’ve had the opportunity to practice these skills through various projects
 to collaborate. These are also skills that I've learned can persist outside 
 of technical environments, and thus I apply them to everyday challenges. 
 I believe these attributes make me a reliable candidate for the 
-Backend Developer position at your company. I hope to hear back from you soon so 
+LAMP Developer position at your company. I hope to hear back from you soon so 
 we can learn more about each other and my fit for the role. 
 Thank you for taking the time to consider me for this position. 
 
