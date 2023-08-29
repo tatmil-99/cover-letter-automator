@@ -1,4 +1,12 @@
 from datetime import datetime
+from fpdf import FPDF
+
+
+def format_pdf(letter):
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font('Arial', 12)
+    pdf.set_margins(2.54, 2.54)
 
 
 def edit_letter(today, company, position):
