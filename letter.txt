@@ -2,43 +2,16 @@ Tatien Miller
 Software Developer
 tatmil99@gmail.com
 
-8/30/2023
+8/31/2023
 
 Dear Hiring Manager, 
 
-My name is Tatien Miller and I am passionate about software development, 
-computers, and just about anything tech related. I am looking for a role 
-that will challenge me and allow me to grow as a natural problem solver. 
-I enjoy troubleshooting and solving problems (traits that drew me to programming) 
-and I feel my current skills would allow me to be successful in this role. 
-I’m confident I would be a great fit as an employee for google 
-and could responsibly fulfill the job duties and requirements of the 
-dev job vacancy. 
+My name is Tatien Miller and I am passionate about software development, computers, and just about anything tech related. I am looking for a role that will challenge me and allow me to grow as a natural problem solver. I enjoy troubleshooting and solving problems (traits that drew me to programming) and I feel my current skills would allow me to be successful in this role. I’m confident I would be a great fit as an employee for google and could responsibly fulfill the job duties and requirements of the coder job vacancy. 
 
-My education is somewhat diverse and includes knowledge from various institutes 
-and areas of interest. Most recently, I am a graduate of DigitalCrafts, 
-a leading educational institute that teaches software development. Before that, 
-I earned college credits from Truman State University and 
-Moberly Area Community College, where I studied business and economics. 
-Since my graduation from DigitalCrafts, I have been working on personal projects. 
-One of these projects being an e-commerce web app that sells coffee beans. 
-This was a really fun, yet challenging, project that allowed me to practice 
-important software development principles like state management. 
-Since then, I have continued to further my education by completing certificates 
-and studying computer science and information technology related material. 
-In addition to continued learning, I have also been steady in coding various 
-projects and improving my problem solving skills. 
+My education is somewhat diverse and includes knowledge from various institutes and areas of interest. Most recently, I am a graduate of DigitalCrafts, a leading educational institute that teaches software development. Before that, I earned college credits from Truman State University and Moberly Area Community College, where I studied business and economics. Since my graduation from DigitalCrafts, I have been working on personal projects. One of these projects being an e-commerce web app that sells coffee beans. This was a really fun, yet challenging, project that allowed me to practice important software development principles like state management. Since then, I have continued to further my education by completing certificates and studying computer science and information technology related material. In addition to continued learning, I have also been steady in coding various projects and improving my problem solving skills. 
 
-The biggest take-away(s) from my educational experiences has been learning to 
-never stop pursuing knowledge and learning how to think critically. 
-I’ve had the opportunity to practice these skills through various projects 
-(both individually and with a team) using software like Git and GitHub 
-to collaborate. These are also skills that I've learned can persist outside 
-of technical environments, and thus I apply them to everyday challenges. 
-I believe these attributes make me a reliable candidate for the 
-dev position at your company. I hope to hear back from you soon so 
-we can learn more about each other and my fit for the role. 
-Thank you for taking the time to consider me for this position. 
+The biggest take-away(s) from my educational experiences has been learning to never stop pursuing knowledge and learning how to think critically. I’ve had the opportunity to practice these skills through various projects (both individually and with a team) using software like Git and GitHub to collaborate. These are also skills that I've learned can persist outside of technical environments, and thus I apply them to everyday challenges. I believe these attributes make me a reliable candidate for the coder position at your company. I hope to hear back from you soon so we can learn more about each other and my fit for the role. Thank you for taking the time to consider me for this position. 
 
 Best, 
 Tatien Miller 
+

@@ -4,17 +4,17 @@ from fpdf import FPDF
 
 def format_pdf():
     pdf = FPDF()
+    pdf.set_margins(25.4, 25.4, 25.4)
     pdf.add_page()
-    pdf.add_font('Arial', '', '/Users/tatienmiller/Library/Fonts/Arial.ttf', True)
+    pdf.add_font(
+        'Arial', '', '/Users/tatienmiller/Library/Fonts/Arial.ttf', True)
     pdf.set_font('Arial')
-    pdf.set_top_margin(2.54)
-    pdf.set_right_margin(2.54)
 
     with open('letter.txt', 'r') as letter:
         lines = letter.readlines()
 
     for line in lines:
-        pdf.cell(0, 5, line, 0, 1, 'L')
+        pdf.multi_cell(0, 5, line)
 
     pdf.output('cover_letter.pdf')
 
