@@ -12,7 +12,7 @@ def create_pdf(letter):
     pdf.set_font('Arial')
     pdf.multi_cell(0, 5, letter)
 
-    pdf.output('cover_letter.pdf')
+    pdf.output('/Users/tatienmiller/Downloads/cover_letter.pdf')
 
 
 def edit_letter(today, company, position):
