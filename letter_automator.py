@@ -27,6 +27,26 @@ def edit_letter(today, company, position):
     create_pdf(formatted)
 
 
+class Job:
+    '''Represents jobs applied to'''
+
+    total_jobs = 0
+
+    def __init__(self, company, position, date):
+        self.company = company
+        self.position = position
+        self.date = date
+
+    def company_name(self):
+        print(f'{self.company}')
+
+    def company_position(self):
+        print(f'{self.position}')
+
+    def date_applied(self):
+        print(f'{self.date}')
+
+
 current_datetime = datetime.now()
 today = (f'{current_datetime.month}/'
          f'{current_datetime.day}/'
@@ -35,3 +55,8 @@ company = input('What company are you applying to? ').strip()
 position = input('What is the position? ').strip()
 
 edit_letter(today, company, position)
+
+job = Job(company, position, today)
+job.company_name()
+job.company_position()
+job.date_applied()
