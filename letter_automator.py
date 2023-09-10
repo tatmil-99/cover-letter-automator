@@ -47,6 +47,10 @@ class Job:
         print(f'{self.date}')
 
 
+def store_job(job):
+    jobs[company.lower()] = job
+
+
 current_datetime = datetime.now()
 today = (f'{current_datetime.month}/'
          f'{current_datetime.day}/'
@@ -57,7 +61,6 @@ position = input('What is the position? ').strip()
 edit_letter(today, company, position)
 
 jobs = {}
-
 job = Job(company, position, today)
-jobs[company.lower()] = job
+store_job(job)
 print(jobs)
