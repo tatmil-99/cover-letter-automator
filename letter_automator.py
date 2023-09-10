@@ -56,7 +56,8 @@ position = input('What is the position? ').strip()
 
 edit_letter(today, company, position)
 
+jobs = {}
+
 job = Job(company, position, today)
-job.company_name()
-job.company_position()
-job.date_applied()
+jobs[company.lower()] = job
+print(jobs)
