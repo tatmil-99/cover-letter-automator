@@ -31,3 +31,4 @@ This is the first project I've built out of need and with intent to use on a reg
 ## Available Scripts
 
 With fpdf and python3 installed, one could run `python3 letter_automator.py` inside the project directory.
+**Note**: Keep in mind I am using a custom font to allow for unicode encoding, so you may need to adjust `add_font()` and `set_font()` as needed.
