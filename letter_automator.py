@@ -30,21 +30,10 @@ def edit_letter(today, company, position):
 class Job:
     '''Represents jobs applied to'''
 
-    total_jobs = 0
-
     def __init__(self, company, position, date):
         self.company = company
         self.position = position
         self.date = date
-
-    def company_name(self):
-        print(f'{self.company}')
-
-    def company_position(self):
-        print(f'{self.position}')
-
-    def date_applied(self):
-        print(f'{self.date}')
 
 
 def store_job(job):
