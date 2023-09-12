@@ -30,15 +30,16 @@ def edit_letter(today, company, position):
 class Job:
     '''Represents jobs applied to'''
 
+    jobs = {}
+
     def __init__(self, company, position, date):
         self.company = company
         self.position = position
         self.date = date
 
-
-def store_job(job):
-    company = job.company.lower()
-    jobs[company] = job
+    def store_job(self):
+        company = self.company.lower()
+        Job.jobs[company] = self
 
 
 current_datetime = datetime.now()
@@ -50,7 +51,6 @@ position = input('What is the position? ').strip()
 
 edit_letter(today, company, position)
 
-jobs = {}  # Should this be inside Job class?
 job = Job(company, position, today)
-store_job(job)
-print(jobs)
+job.store_job()
+print(Job.jobs)
