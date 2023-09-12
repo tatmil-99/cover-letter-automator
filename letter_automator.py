@@ -37,7 +37,8 @@ class Job:
 
 
 def store_job(job):
-    jobs[company.lower()] = job
+    company = job.company.lower()
+    jobs[company] = job
 
 
 current_datetime = datetime.now()
@@ -49,7 +50,7 @@ position = input('What is the position? ').strip()
 
 edit_letter(today, company, position)
 
-jobs = {}
+jobs = {}  # Should this be inside Job class?
 job = Job(company, position, today)
 store_job(job)
 print(jobs)
