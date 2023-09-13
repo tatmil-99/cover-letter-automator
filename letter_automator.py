@@ -43,7 +43,7 @@ class Job:
 
     @classmethod
     def search_job(cls, job):
-        if job.company in cls.jobs:
+        if job in cls.jobs:
             print(job)
         else:
             print('Not found')
@@ -60,4 +60,4 @@ edit_letter(today, company, position)
 
 job = Job(company, position, today)
 job.store_job()
-Job.search_job(job)
+Job.search_job(job.company)
