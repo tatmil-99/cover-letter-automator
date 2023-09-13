@@ -33,13 +33,20 @@ class Job:
     jobs = {}
 
     def __init__(self, company, position, date):
-        self.company = company
+        self.company = company.lower()
         self.position = position
         self.date = date
 
     def store_job(self):
-        company = self.company.lower()
-        Job.jobs[company] = self
+        # company = self.company.lower()
+        Job.jobs[self.company] = self
+
+    @classmethod
+    def search_job(cls, job):
+        if job.company in cls.jobs:
+            print(job)
+        else:
+            print('Not found')
 
 
 current_datetime = datetime.now()
@@ -53,4 +60,4 @@ edit_letter(today, company, position)
 
 job = Job(company, position, today)
 job.store_job()
-print(Job.jobs)
+Job.search_job(job)
