@@ -38,8 +38,18 @@ class Job:
         self.date = date
 
     def store_job(self):
-        # company = self.company.lower()
         Job.jobs[self.company] = self
+        print(Job.jobs)
+
+    def update_key(self, new, old):
+        Job.jobs[new] = Job.jobs.pop(old)
+        print(Job.jobs)
+
+    def update_company(self, data):
+        old_company = self.company
+        self.company = data.lower()
+        new_company = self.company
+        self.update_key(new_company, old_company)
 
     @classmethod
     def search_job(cls, job):
@@ -60,4 +70,5 @@ edit_letter(today, company, position)
 
 job = Job(company, position, today)
 job.store_job()
-Job.search_job(job.company)
+job.update_company('New Google')
+# Job.search_job(job.company)
