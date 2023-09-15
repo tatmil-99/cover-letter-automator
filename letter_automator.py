@@ -31,17 +31,31 @@ class JobApplication:
     '''Represents jobs applied to'''
 
     applications = {}
+    total = 0
 
     def __init__(self, company, position, date):
         self.company = company.lower()
-        self.position = position
+        self.position = position.lower()
         self.date = date
 
-    def update_company(self, data):
+        JobApplication.total += 1
+
+    def update_company(self, company):
         old_company = self.company
-        self.company = data.lower()
+        self.company = company.lower()
         new_company = self.company
         JobApplication.update_key(new_company, old_company)
+
+    def update_position(self, position):
+        self.position = position.lower()
+
+    @classmethod
+    def read_jobs(cls):
+        print(f'Total applications: {cls.total}')
+        for i in cls.applications:
+            print((f'Company: {cls.applications[i].company}, '
+                   f'Position: {cls.applications[i].position}, '
+                   f'Date: {cls.applications[i].date}'))
 
     @classmethod
     def search_job(cls, job):
@@ -72,4 +86,3 @@ edit_letter(today, company, position)
 
 job = JobApplication(company, position, today)
 JobApplication.store_job(job)
-
