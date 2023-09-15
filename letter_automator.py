@@ -71,7 +71,5 @@ position = input('What is the position? ').strip()
 edit_letter(today, company, position)
 
 job = JobApplication(company, position, today)
-# job.store_job()
 JobApplication.store_job(job)
-job.update_company('New Google')
-# JobApplication.search_job(job.company)
+
