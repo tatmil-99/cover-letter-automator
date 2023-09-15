@@ -27,36 +27,38 @@ def edit_letter(today, company, position):
     create_pdf(formatted)
 
 
-class Job:
+class JobApplication:
     '''Represents jobs applied to'''
 
-    jobs = {}
+    applications = {}
 
     def __init__(self, company, position, date):
         self.company = company.lower()
         self.position = position
         self.date = date
 
-    def store_job(self):
-        Job.jobs[self.company] = self
-        print(Job.jobs)
-
-    def update_key(self, new, old):
-        Job.jobs[new] = Job.jobs.pop(old)
-        print(Job.jobs)
-
     def update_company(self, data):
         old_company = self.company
         self.company = data.lower()
         new_company = self.company
-        self.update_key(new_company, old_company)
+        JobApplication.update_key(new_company, old_company)
 
     @classmethod
     def search_job(cls, job):
-        if job in cls.jobs:
+        if job in cls.applications:
             print(job)
         else:
             print('Not found')
+
+    @classmethod
+    def update_key(cls, new, old):
+        cls.applications[new] = cls.applications.pop(old)
+        print(cls.applications)
+
+    @classmethod
+    def store_job(cls, job):
+        cls.applications[job.company] = job
+        print(cls.applications)
 
 
 current_datetime = datetime.now()
@@ -68,7 +70,8 @@ position = input('What is the position? ').strip()
 
 edit_letter(today, company, position)
 
-job = Job(company, position, today)
-job.store_job()
+job = JobApplication(company, position, today)
+# job.store_job()
+JobApplication.store_job(job)
 job.update_company('New Google')
-# Job.search_job(job.company)
+# JobApplication.search_job(job.company)
