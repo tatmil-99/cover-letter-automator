@@ -74,6 +74,15 @@ class JobApplication:
         cls.applications[job.company] = job
         print(cls.applications)
 
+    @classmethod
+    def delete_job(cls, job):
+        try:
+            del cls.applications[job]
+            print(f'Deleting job: {job}')
+            JobApplication.total -= 1
+        except KeyError:
+            print(f'Could not find job: {job}.')
+
 
 current_datetime = datetime.now()
 today = (f'{current_datetime.month}/'
