@@ -1,0 +1,15 @@
+CLI Logic:
+
+- Need to create commands for:
+
+  - Create functionaliy
+    - Arguments and options for name of company, position, and if I want to store application
+    - With input data, run corresponding method
+
+  - Read functionaliy
+
+  - Update functionaliy
+
+  - Delete functionaliy
+
+  - Search functionaliy
