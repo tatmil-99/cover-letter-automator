@@ -1,5 +1,6 @@
 from datetime import datetime
 from fpdf import FPDF
+import argparse
 
 
 def create_pdf(letter):
@@ -84,14 +85,33 @@ class JobApplication:
             print(f'Could not find job: {job}.')
 
 
-current_datetime = datetime.now()
-today = (f'{current_datetime.month}/'
-         f'{current_datetime.day}/'
-         f'{current_datetime.year}')
-company = input('What company are you applying to? ').strip()
-position = input('What is the position? ').strip()
+parser = argparse.ArgumentParser()
+parser.add_argument(
+    '--create', help='create pdf for cover letter', action='store_true')
+parser.add_argument(
+    '--store', help='store job data', action='store_true')
+args = parser.parse_args()
 
-edit_letter(today, company, position)
+# Using optional arguments here instead of positional because the data
+# needed requires custom input from the user
+if args.create and args.store:
+    current_datetime = datetime.now()
+    today = (f'{current_datetime.month}/'
+             f'{current_datetime.day}/'
+             f'{current_datetime.year}')
+    company = input('What company are you applying to? ').strip()
+    position = input('What is the position? ').strip()
 
-job = JobApplication(company, position, today)
-JobApplication.store_job(job)
+    edit_letter(today, company, position)
+
+    job = JobApplication(company, position, today)
+    JobApplication.store_job(job)
+elif args.create:
+    current_datetime = datetime.now()
+    today = (f'{current_datetime.month}/'
+             f'{current_datetime.day}/'
+             f'{current_datetime.year}')
+    company = input('What company are you applying to? ').strip()
+    position = input('What is the position? ').strip()
+
+    edit_letter(today, company, position)
