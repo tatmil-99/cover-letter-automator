@@ -54,10 +54,11 @@ class JobApplication:
     def read_jobs(cls):
         print(f'Total applications: {cls.total}')
         for i in cls.applications:
-            print((f'Company: {cls.applications[i].company}, '
-                   f'Position: {cls.applications[i].position}, '
-                   f'Date: {cls.applications[i].date}'))
+            print((f'company: {cls.applications[i].company}, '
+                   f'position: {cls.applications[i].position}, '
+                   f'date: {cls.applications[i].date}'))
 
+    # Need to list all applications to specific company (as tuple)?
     @classmethod
     def search_job(cls, job):
         if job in cls.applications:
@@ -85,11 +86,17 @@ class JobApplication:
             print(f'Could not find job: {job}.')
 
 
+# Need to make CRUD commands with company, position, etc., arguments.
 parser = argparse.ArgumentParser()
 parser.add_argument(
     '--create', help='create pdf for cover letter', action='store_true')
 parser.add_argument(
     '--store', help='store job data', action='store_true')
+parser.add_argument(
+    '--list jobs', help='list all jobs applied to', action='store_true')
+parser.add_argument(
+    '--search', help='seaches if company exists in applications',
+    action='store_true')
 args = parser.parse_args()
 
 # Using optional arguments here instead of positional because the data
