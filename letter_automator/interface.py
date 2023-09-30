@@ -28,8 +28,8 @@ if args.create and args.store:
 
     letter.edit(today, company, position)
 
-    job = applications.job(company, position, today)
-    applications.job.store(job)
+    job = applications.Job(company, position, today)
+    applications.Job.store(job)
 elif args.create:
     current_datetime = datetime.now()
     today = (f'{current_datetime.month}/'
