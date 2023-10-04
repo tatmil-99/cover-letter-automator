@@ -21,16 +21,16 @@ create_parser.add_argument(
 args = parser.parse_args()
 subcommand = args.subparser_name
 
-current_datetime = datetime.now()
-today = (f'{current_datetime.month}/'
-         f'{current_datetime.day}/'
-         f'{current_datetime.year}')
-
 if subcommand == 'create':
+    current_datetime = datetime.now()
+    today = (f'{current_datetime.month}/'
+             f'{current_datetime.day}/'
+             f'{current_datetime.year}')
     company = args.company.lower()
     position = args.position.lower()
-    letter.create(today, company, position)
 
+    letter.create(today, company, position)
+    
     if args.store:
         job = Job(company, position, today)
         Job.store(job)
