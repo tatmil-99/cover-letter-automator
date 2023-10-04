@@ -1,5 +1,4 @@
 from fpdf import FPDF
-from datetime import datetime
 
 
 def create_pdf(letter):
@@ -15,12 +14,7 @@ def create_pdf(letter):
     pdf.output('/Users/tatienmiller/Downloads/cover_letter.pdf')
 
 
-def create(company, position):
-    current_datetime = datetime.now()
-    today = (f'{current_datetime.month}/'
-             f'{current_datetime.day}/'
-             f'{current_datetime.year}')
-
+def create(today, company, position):
     template = 'template.txt'
 
     with open(template, 'r') as letter:
