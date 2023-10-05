@@ -8,7 +8,6 @@ class Job:
         self.company = company.lower()
         self.position = position.lower()
         self.date = date
-
         Job.total += 1
 
     def update_company(self, company):
