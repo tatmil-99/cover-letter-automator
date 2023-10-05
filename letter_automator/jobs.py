@@ -1,5 +1,5 @@
 class Job:
-    '''Represents jobs applied to'''
+    """Represents jobs applied to"""
 
     applications = {}
     total = 0
@@ -27,7 +27,7 @@ class Job:
         if job in cls.applications:
             print(job)
         else:
-            print('Not found')
+            print("Not found")
 
     @classmethod
     def update_key(cls, new, old):
@@ -43,7 +43,7 @@ class Job:
     def delete_job(cls, job):
         try:
             del cls.applications[job]
-            print(f'Deleting job: {job}')
+            print(f"Deleting job: {job}")
             Job.total -= 1
         except KeyError:
-            print(f'Could not find job: {job}.')
+            print(f"Could not find job: {job}.")
