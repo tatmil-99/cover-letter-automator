@@ -20,15 +20,8 @@ class Job:
     def update_position(self, position):
         self.position = position.lower()
 
-    @classmethod
-    def read_jobs(cls):
-        print(f'Total applications: {cls.total}')
-        for i in cls.applications:
-            print((f'company: {cls.applications[i].company}, '
-                   f'position: {cls.applications[i].position}, '
-                   f'date: {cls.applications[i].date}'))
-
     # Need to list all applications to specific company (as tuple)?
+
     @classmethod
     def search_job(cls, job):
         if job in cls.applications:
