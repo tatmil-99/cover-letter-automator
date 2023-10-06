@@ -3,6 +3,21 @@ import argparse
 from jobs import Job
 from datetime import datetime
 
+
+def get_company_namespace(args):
+    if 'company' in args:
+        return args.company.lower()
+    else:
+        return None
+
+
+def get_position_namespace(args):
+    if 'position' in args:
+        return args.position.lower()
+    else:
+        return None
+
+
 # create command-line parsers
 parser = argparse.ArgumentParser(
     prog="cover letter automator",
@@ -28,20 +43,19 @@ read_parser = subparser.add_parser(
 read_parser.add_argument("company", help="name of company applied to")
 
 # interactive cli loop
-print("Welcome to my cover letter automation tool...")
-print("use '-q' to quit or '-h' for help. Thanks for using!")
+print("Use '-q' to quit or '-h' for help")
 while True:
-    cli_input = input("Enter command: ")
+    cli_input = input(">>> ")
     args = parser.parse_args(cli_input.split())
     subcommand = args.subparser_name
+    company = get_company_namespace(args)
+    position = get_position_namespace(args)
 
-    current = datetime.now()
-    today = f"{current.month}/{current.day}/{current.year}"
-    company = args.company.lower()
-    position = args.position.lower()
-    
     if subcommand == "create":
+        current = datetime.now()
+        today = f"{current.month}/{current.day}/{current.year}"
         letter.create(today, company, position)
+
         if args.store:
             job = Job(company, position, today)
             Job.store(job)
