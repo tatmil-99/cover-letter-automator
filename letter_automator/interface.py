@@ -4,14 +4,14 @@ from jobs import Job
 from datetime import datetime
 
 
-def get_company_namespace(args):
+def get_company_name(args):
     if 'company' in args:
         return args.company.lower()
     else:
         return None
 
 
-def get_position_namespace(args):
+def get_position_name(args):
     if 'position' in args:
         return args.position.lower()
     else:
@@ -48,8 +48,8 @@ while True:
     cli_input = input(">>> ")
     args = parser.parse_args(cli_input.split())
     subcommand = args.subparser_name
-    company = get_company_namespace(args)
-    position = get_position_namespace(args)
+    company = get_company_name(args)
+    position = get_position_name(args)
 
     if subcommand == "create":
         current = datetime.now()
