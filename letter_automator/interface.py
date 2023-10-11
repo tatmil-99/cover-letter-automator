@@ -4,12 +4,14 @@ from jobs import Job
 from datetime import datetime
 
 
-# check if company in namespace returned from parsed args
+# check if company in namespace is returned from parsed args
 def get_company_arg(args):
     if 'company' in args:
+        if isinstance(args.company, bool):  # check if "company" is flag
+            return True
         return args.company.lower()
     else:
-        return None
+        return
 
 
 # check if position in namespace returned from parsed args
@@ -17,7 +19,7 @@ def get_position_arg(args):
     if 'position' in args:
         return args.position.lower()
     else:
-        return None
+        return
 
 
 # create command-line parsers
@@ -76,6 +78,9 @@ while True:
     elif subcommand == "read":
         Job.search_job(company)
     elif subcommand == "update":
-        pass
+        if company:
+            company_obj = Job.search_job(args.old_company)
+            # print(company_obj)
+            company_obj.update_company(args.old_company, args.new_company)
     elif args.quit:
         break

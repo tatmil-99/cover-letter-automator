@@ -10,9 +10,9 @@ class Job:
         self.date = date
         Job.total += 1
 
-    def update_company(self, company):
-        old_company = self.company
-        self.company = company.lower()
+    def update_company(self, old, new):
+        old_company = old.lower()
+        self.company = new.lower()
         new_company = self.company
         Job.update_key(new_company, old_company)
 
@@ -20,11 +20,11 @@ class Job:
         self.position = position.lower()
 
     # Need to list all applications to specific company (as tuple)?
-
     @classmethod
     def search_job(cls, job):
         if job in cls.applications:
-            print(job)
+            print(f"Found: {cls.applications[job]}")
+            return cls.applications[job]
         else:
             print("Not found")
 
