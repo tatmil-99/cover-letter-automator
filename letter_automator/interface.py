@@ -81,6 +81,6 @@ while True:
         if company:
             company_obj = Job.search_job(args.old_company)
             # print(company_obj)
-            company_obj.update_company(args.old_company, args.new_company)
+            company_obj.update_company(args.new_company)
     elif args.quit:
         break
