@@ -79,8 +79,6 @@ while True:
         Job.search_job(company)
     elif subcommand == "update":
         if company:
-            company_obj = Job.search_job(args.old_company)
-            # print(company_obj)
-            company_obj.update_company(args.new_company)
+            pass  # need instance method to use object attributes in applications dictionary
     elif args.quit:
         break

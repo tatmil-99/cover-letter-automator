@@ -24,7 +24,6 @@ class Job:
     def search_job(cls, job):
         if job in cls.applications:
             print(f"Found: {cls.applications[job]}")
-            return cls.applications[job]
         else:
             print("Not found")
 
