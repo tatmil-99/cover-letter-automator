@@ -21,7 +21,7 @@ class Job:
 
     # Need to list all applications to specific company (as tuple)?
     @classmethod
-    def search_job(cls, job):
+    def get_job(cls, job):
         if job in cls.applications:
             print(f"Found: {cls.applications[job]}")
         else:
