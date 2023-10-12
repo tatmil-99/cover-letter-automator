@@ -76,9 +76,10 @@ while True:
             job = Job(company, position, today)
             Job.store(job)
     elif subcommand == "read":
-        Job.get_job(company)
+        Job.get_job(company, print_obj=True)
     elif subcommand == "update":
         if company:
-            pass  # need instance method to use object attributes in applications dictionary
+            job = Job.get_job(args.old_company)
+            job.update_company(args.new_company)
     elif args.quit:
         break

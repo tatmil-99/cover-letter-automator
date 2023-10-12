@@ -23,17 +23,17 @@ class Job:
     @classmethod
     def get_job(cls, job, print_obj=False):
         try:
-            if job in cls.applications and print_obj == False:
-                return cls.applications[job]
-            elif job in cls.applications and print_obj == True:
+            if print_obj == True:
                 print(f"Found: {cls.applications[job]}")
+            else:
+                return cls.applications[job]
         except KeyError:
             print(f"Could not find job: {job}.")
 
     @classmethod
     def update_key(cls, new, old):
         cls.applications[new] = cls.applications.pop(old)
-        print(cls.applications)
+        # print(cls.applications)
 
     @classmethod
     def store(cls, job):
