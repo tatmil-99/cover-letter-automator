@@ -21,11 +21,14 @@ class Job:
 
     # Need to list all applications to specific company (as tuple)?
     @classmethod
-    def get_job(cls, job):
-        if job in cls.applications:
-            print(f"Found: {cls.applications[job]}")
-        else:
-            print("Not found")
+    def get_job(cls, job, print_obj=False):
+        try:
+            if job in cls.applications and print_obj == False:
+                return cls.applications[job]
+            elif job in cls.applications and print_obj == True:
+                print(f"Found: {cls.applications[job]}")
+        except KeyError:
+            print(f"Could not find job: {job}.")
 
     @classmethod
     def update_key(cls, new, old):
