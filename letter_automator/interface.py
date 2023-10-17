@@ -7,8 +7,6 @@ from datetime import datetime
 # check if company in namespace is returned from parsed args
 def get_company_arg(args):
     if 'company' in args:
-        if isinstance(args.company, bool):  # check if "company" is flag
-            return True
         return args.company.lower()
     else:
         return
@@ -50,9 +48,6 @@ read_parser.add_argument("company", help="name of company applied to")
 # "update" sub-command
 update_parser = subparser.add_parser(
     "update", help="update name of company already applied to")
-
-update_parser.add_argument(
-    "-c", "--company", action="store_true", help="specify you want to update company info")
 update_parser.add_argument("old_company", help="name of company to edit")
 update_parser.add_argument("new_company", help="new name of company")
 
@@ -78,8 +73,9 @@ while True:
     elif subcommand == "read":
         Job.get_job(company, print_obj=True)
     elif subcommand == "update":
-        if company:
-            job = Job.get_job(args.old_company)
+        job = Job.get_job(args.old_company)
+
+        if job is not None:
             job.update_company(args.new_company)
     elif args.quit:
         break

@@ -23,7 +23,7 @@ class Job:
     @classmethod
     def get_job(cls, job, print_obj=False):
         try:
-            if print_obj == True:
+            if print_obj:
                 print(f"Found: {cls.applications[job]}")
             else:
                 return cls.applications[job]
