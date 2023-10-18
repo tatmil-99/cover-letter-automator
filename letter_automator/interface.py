@@ -7,7 +7,7 @@ from datetime import datetime
 # check if company in namespace is returned from parsed args
 def get_company_arg(args):
     if 'company' in args:
-        return args.company.lower()
+        return args.company
     else:
         return
 
