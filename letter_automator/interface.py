@@ -47,10 +47,9 @@ read_parser.add_argument("company", help="name of company applied to")
 
 # "update" sub-command
 update_parser = subparser.add_parser(
-    "update", help="update name of company already applied to")
-update_parser.add_argument("old_company", help="name of company to edit")
-update_parser.add_argument("new_company", help="new name of company")
-
+    "update", help="update name of company applied to")
+update_parser.add_argument("-c", "--company", nargs=2,
+                           help="name of company to update, followed by new company")
 
 # interactive cli loop
 print("Use '-q' to quit or '-h' for help")
@@ -73,9 +72,9 @@ while True:
     elif subcommand == "read":
         Job.get_job(company, print_obj=True)
     elif subcommand == "update":
-        job = Job.get_job(args.old_company)
+        job = Job.get_job(args.company[0])
 
         if job is not None:
-            job.update_company(args.new_company)
+            job.update_company(company[1])
     elif args.quit:
         break
