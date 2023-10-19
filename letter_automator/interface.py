@@ -4,22 +4,6 @@ from jobs import Job
 from datetime import datetime
 
 
-# check if company in namespace is returned from parsed args
-def get_company_arg(args):
-    if 'company' in args:
-        return args.company
-    else:
-        return
-
-
-# check if position in namespace returned from parsed args
-def get_position_arg(args):
-    if 'position' in args:
-        return args.position
-    else:
-        return
-
-
 def update_job(attr, parser_arg):
     old_job = parser_arg[0]
     new_job = parser_arg[1]
@@ -72,23 +56,20 @@ while True:
     args = parser.parse_args(cli_input.split())
     subcommand = args.subparser_name
 
-    company = get_company_arg(args)
-    position = get_position_arg(args)
-    current = datetime.now()
-    today = f"{current.month}/{current.day}/{current.year}"
-
     if subcommand == "create":
-        letter.create(today, company, position)
+        current = datetime.now()
+        today = f"{current.month}/{current.day}/{current.year}"
+        letter.create(today, args.company, args.position)
 
         if args.store:
-            job = Job(company, position, today)
+            job = Job(args.company, args.position, today)
             Job.store(job)
     elif subcommand == "read":
-        Job.get_job(company, print_obj=True)
+        Job.get_job(args.company, print_obj=True)
     elif subcommand == "update":
-        if company:
-            update_job("company", company)
-        elif position:
-            update_job("position", position)
+        if args.company:
+            update_job("company", args.company)
+        elif args.position:
+            update_job("position", args.position)
     elif args.quit:
         break
