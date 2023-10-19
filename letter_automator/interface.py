@@ -15,7 +15,7 @@ def get_company_arg(args):
 # check if position in namespace returned from parsed args
 def get_position_arg(args):
     if 'position' in args:
-        return args.position.lower()
+        return args.position
     else:
         return
 
@@ -50,6 +50,8 @@ update_parser = subparser.add_parser(
     "update", help="update name of company applied to")
 update_parser.add_argument("-c", "--company", nargs=2,
                            help="name of company to update, followed by new company")
+update_parser.add_argument("-p", "--position", nargs=2,
+                           help="name of company to update, followed by new position")
 
 # interactive cli loop
 print("Use '-q' to quit or '-h' for help")
@@ -72,9 +74,15 @@ while True:
     elif subcommand == "read":
         Job.get_job(company, print_obj=True)
     elif subcommand == "update":
-        job = Job.get_job(args.company[0])
+        if company:
+            job = Job.get_job(args.company[0])
 
-        if job is not None:
-            job.update_company(company[1])
+            if job is not None:
+                job.update_company(company[1])
+        elif position:
+            job = Job.get_job(args.position[0])
+
+            if job is not None:
+                job.update_position(position[1])
     elif args.quit:
         break

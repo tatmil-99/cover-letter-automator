@@ -25,6 +25,8 @@ class Job:
         try:
             if print_obj:
                 print(f"Found: {cls.applications[job]}")
+                print(f"Company: {cls.applications[job].company}")
+                print(f"Position: {cls.applications[job].position}")
             else:
                 return cls.applications[job]
         except KeyError:
