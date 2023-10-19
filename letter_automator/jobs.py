@@ -24,15 +24,15 @@ class Job:
     def get_job(cls, job, print_obj=False):
         try:
             job_stored = cls.applications[job.lower()]
-
+        except KeyError:
+            print(f"Could not find job: {job}.")
+        else:
             if print_obj:
                 print(f"Found: {job_stored}")
                 print(f"Company: {job_stored.company}")
                 print(f"Position: {job_stored.position}")
-            else:  # should this be listed after except keyword?
+            else:
                 return job_stored
-        except KeyError:
-            print(f"Could not find job: {job}.")
 
     @classmethod
     def update_key(cls, new, old):
