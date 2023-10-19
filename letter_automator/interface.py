@@ -20,6 +20,18 @@ def get_position_arg(args):
         return
 
 
+def update_job(attr, parser_arg):
+    old_job = parser_arg[0]
+    new_job = parser_arg[1]
+    job = Job.get_job(old_job)
+
+    if job:
+        setattr(job, attr, new_job)
+
+        if attr == "company":
+            Job.update_key(old_job, new_job)
+
+
 # create command-line parsers
 parser = argparse.ArgumentParser(
     prog="cover letter automator",
@@ -75,14 +87,8 @@ while True:
         Job.get_job(company, print_obj=True)
     elif subcommand == "update":
         if company:
-            job = Job.get_job(args.company[0])
-
-            if job is not None:
-                job.update_company(company[1])
+            update_job("company", company)
         elif position:
-            job = Job.get_job(args.position[0])
-
-            if job is not None:
-                job.update_position(position[1])
+            update_job("position", position)
     elif args.quit:
         break

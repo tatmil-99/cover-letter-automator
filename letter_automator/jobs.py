@@ -35,7 +35,7 @@ class Job:
                 return job_stored
 
     @classmethod
-    def update_key(cls, new, old):
+    def update_key(cls, old, new):
         cls.applications[new] = cls.applications.pop(old)
         # print(cls.applications)
 
