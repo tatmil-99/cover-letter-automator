@@ -10,16 +10,8 @@ class Job:
         self.date = date
         Job.total += 1
 
-    def update_company(self, company):
-        old_company = self.company
-        self.company = company.lower()
-        new_company = self.company
-        Job.update_key(new_company, old_company)
-
-    def update_position(self, position):
-        self.position = position.lower()
-
     # Need to list all applications to specific company (as tuple)?
+    # use built-in getattr() method?
     @classmethod
     def get_job(cls, job, print_obj=False):
         try:
