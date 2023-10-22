@@ -5,8 +5,8 @@ from datetime import datetime
 
 
 def update_job(attr, parser_arg):
-    old_job = parser_arg[0]
-    new_job = parser_arg[1]
+    old_job = parser_arg[0].lower()
+    new_job = parser_arg[1].lower()
     job = Job.get_job(old_job)
 
     if job:
