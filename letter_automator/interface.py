@@ -49,8 +49,15 @@ update_parser.add_argument("-c", "--company", nargs=2,
 update_parser.add_argument("-p", "--position", nargs=2,
                            help="name of company to update, followed by new position")
 
+# "delete" sub-command
+delete_parser = subparser.add_parser(
+    "delete", help="delete company applied to")
+delete_parser.add_argument("company", help="name of company applied to")
+delete_parser.add_argument("position", help="name of position applied to")
+
 # interactive cli loop
 print("Use '-q' to quit or '-h' for help")
+
 while True:
     cli_input = input(">>> ")
     args = parser.parse_args(cli_input.split())
