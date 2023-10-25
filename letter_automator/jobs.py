@@ -13,18 +13,31 @@ class Job:
     # Need to list all applications to specific company (as tuple)?
     # use built-in getattr() method?
     @classmethod
-    def get_job(cls, job, print_obj=False):
-        try:
-            job_stored = cls.applications[job.lower()]
-        except KeyError:
-            print(f"Could not find job: {job}.")
-        else:
-            if print_obj:
-                print(f"Found: {job_stored}")
-                print(f"Company: {job_stored.company}")
-                print(f"Position: {job_stored.position}")
-            else:
-                return job_stored
+    def get_job(cls, company, position=None, print_obj=False):
+        for name, application in cls.applications.items():
+            if company.lower() == name:
+                if print_obj:
+                    print(f"Found: {application}")
+                    print(f"Company: {application.company}")
+                    print(f"Position: {application.position}")
+                elif position.lower() == application.position:
+                    return application
+                else:
+                    return application
+
+        print(f"Could not find job in storage.")
+
+        # try:
+        #     job_stored = cls.applications[company.lower()]
+        # except KeyError:
+        #     print(f"Could not find job: {company}.")
+        # else:
+        #     if print_obj:
+        #         print(f"Found: {job_stored}")
+        #         print(f"Company: {job_stored.company}")
+        #         print(f"Position: {job_stored.position}")
+        #     else:
+        #         return job_stored
 
     @classmethod
     def update_key(cls, old, new):
