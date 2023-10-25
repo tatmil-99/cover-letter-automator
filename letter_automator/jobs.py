@@ -28,18 +28,6 @@ class Job:
 
         print(f"Could not find job in storage.")
 
-        # try:
-        #     job_stored = cls.applications[company.lower()]
-        # except KeyError:
-        #     print(f"Could not find job: {company}.")
-        # else:
-        #     if print_obj:
-        #         print(f"Found: {job_stored}")
-        #         print(f"Company: {job_stored.company}")
-        #         print(f"Position: {job_stored.position}")
-        #     else:
-        #         return job_stored
-
     # use built-in method for updating dictionaries?
     @classmethod
     def update_key(cls, old, new):
