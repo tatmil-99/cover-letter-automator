@@ -20,7 +20,8 @@ class Job:
                     print(f"Found: {application}")
                     print(f"Company: {application.company}")
                     print(f"Position: {application.position}")
-                elif position.lower() == application.position:
+                    return
+                elif position and position.lower() == application.position:
                     return application
                 else:
                     return application
@@ -39,6 +40,7 @@ class Job:
         #     else:
         #         return job_stored
 
+    # use built-in method for updating dictionaries?
     @classmethod
     def update_key(cls, old, new):
         cls.applications[new] = cls.applications.pop(old)
@@ -50,10 +52,7 @@ class Job:
         print(cls.applications)
 
     @classmethod
-    def delete_job(cls, job):
-        try:
-            del cls.applications[job]
-            print(f"Deleting job: {job}")
-            Job.total -= 1
-        except KeyError:
-            print(f"Could not find job: {job}.")
+    def delete(cls, job):
+        del cls.applications[job.company]
+        print("Deleting job")
+        Job.total -= 1

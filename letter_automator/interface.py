@@ -66,7 +66,7 @@ while True:
     if subcommand == "create":
         current = datetime.now()
         today = f"{current.month}/{current.day}/{current.year}"
-        letter.create(today, args.company, args.position)
+        # letter.create(today, args.company, args.position)
 
         if args.store:
             job = Job(args.company, args.position, today)
@@ -78,5 +78,10 @@ while True:
             update_job("company", args.company)
         elif args.position:
             update_job("position", args.position)
+    elif subcommand == "delete":
+        job = Job.get_job(args.company, position=args.position)
+
+        if job:
+            Job.delete(job)
     elif args.quit:
         break
