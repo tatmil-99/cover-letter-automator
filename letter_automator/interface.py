@@ -12,9 +12,6 @@ def update_job(attr, parser_arg):
     if job:
         setattr(job, attr, new_job)
 
-        if attr == "company":
-            Job.update_key(old_job, new_job)
-
 
 # create command-line parsers
 parser = argparse.ArgumentParser(
@@ -79,9 +76,9 @@ while True:
         elif args.position:
             update_job("position", args.position)
     elif subcommand == "delete":
-        job = Job.get_job(args.company, position=args.position)
+        job_number = Job.get_job(args.company, position=args.position)
 
-        if job:
-            Job.delete(job)
+        if job_number:
+            Job.delete(job_number)
     elif args.quit:
         break

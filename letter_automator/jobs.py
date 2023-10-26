@@ -14,33 +14,29 @@ class Job:
     # use built-in getattr() method?
     @classmethod
     def get_job(cls, company, position=None, print_obj=False):
-        for name, application in cls.applications.items():
-            if company.lower() == name:
+        for number in cls.applications:
+            job = cls.applications[number]
+
+            if company.lower() == job.company:
                 if print_obj:
-                    print(f"Found: {application}")
-                    print(f"Company: {application.company}")
-                    print(f"Position: {application.position}")
+                    print(f"Found: {job}")
+                    print(f"Company: {job.company}")
+                    print(f"Position: {job.position}")
                     return
-                elif position and position.lower() == application.position:
-                    return application
+                elif position and position.lower() == job.position:
+                    return number
                 else:
-                    return application
+                    return job
 
         print(f"Could not find job in storage.")
 
-    # use built-in method for updating dictionaries?
-    @classmethod
-    def update_key(cls, old, new):
-        cls.applications[new] = cls.applications.pop(old)
-        # print(cls.applications)
-
     @classmethod
     def store(cls, job):
-        cls.applications[job.company] = job
+        cls.applications[cls.total] = job
         print(cls.applications)
 
     @classmethod
-    def delete(cls, job):
-        del cls.applications[job.company]
+    def delete(cls, number):
+        del cls.applications[number]
         print("Deleting job")
-        Job.total -= 1
+        cls.total -= 1
