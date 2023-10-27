@@ -10,6 +10,7 @@ def update_job(attr, parser_arg):
     job = Job.get_job(old_job)
 
     if job:
+        # uses setattr() to make updates more dynamic
         setattr(job, attr, new_job)
 
 
@@ -63,7 +64,7 @@ while True:
     if subcommand == "create":
         current = datetime.now()
         today = f"{current.month}/{current.day}/{current.year}"
-        # letter.create(today, args.company, args.position)
+        letter.create(today, args.company, args.position)
 
         if args.store:
             job = Job(args.company, args.position, today)
@@ -76,9 +77,9 @@ while True:
         elif args.position:
             update_job("position", args.position)
     elif subcommand == "delete":
-        job_number = Job.get_job(args.company, position=args.position)
+        application_num = Job.get_job(args.company, position=args.position)
 
-        if job_number:
-            Job.delete(job_number)
+        if application_num:
+            Job.delete(application_num)
     elif args.quit:
         break
