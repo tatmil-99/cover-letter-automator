@@ -30,7 +30,7 @@ create_parser = subparser.add_parser(
     "create", help="create cover letter with arguments")
 
 create_parser.add_argument("company", help="company name")
-create_parser.add_argument("position", help="job position")
+create_parser.add_argument("position", help="job position", nargs='+')
 create_parser.add_argument(
     "-s", "--store", action="store_true", help="store input data")
 
@@ -64,10 +64,11 @@ while True:
     if subcommand == "create":
         current = datetime.now()
         today = f"{current.month}/{current.day}/{current.year}"
-        letter.create(today, args.company, args.position)
+        joined_str = " ".join(args.position)
+        letter.create(today, args.company, joined_str)
 
         if args.store:
-            job = Job(args.company, args.position, today)
+            job = Job(args.company, joined_str, today)
             Job.store(job)
     elif subcommand == "read":
         Job.get_job(args.company, print_obj=True)
