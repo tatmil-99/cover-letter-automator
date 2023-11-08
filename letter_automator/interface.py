@@ -64,37 +64,35 @@ while True:
     args = parser.parse_args(cli_input.split())
     subcommand = args.subparser_name
 
+    current = datetime.now()
+    today = f"{current.month}/{current.day}/{current.year}"
     joined_company = None
     joined_position = None
-
     # assigns value (if not None) in enclosing scope to make code DRY
     if "company" in args:
         joined_company = " ".join(args.company)
     if "position" in args:
         joined_position = " ".join(args.position)
 
-    if subcommand == "create":
-        current = datetime.now()
-        today = f"{current.month}/{current.day}/{current.year}"
-        # joined_company = " ".join(args.company)
-        # joined_position = " ".join(args.position)
-
-        letter.create(today, joined_company, joined_position)
-
-        if args.store:
-            job = Job(joined_company, joined_position, today)
-            Job.store(job)
-    elif subcommand == "read":
-        Job.get_job(joined_company, print_obj=True)
-    elif subcommand == "update":
-        if args.company:
-            update_job("company", args.company)
-        elif args.position:
-            update_job("position", args.position)
-    elif subcommand == "delete":
-        application_num = Job.get_job(args.company, position=args.position)
-
-        if application_num:
-            Job.delete(application_num)
-    elif args.quit:
+    if args.quit:
         break
+
+    match subcommand:
+        case "create":
+            letter.create(today, joined_company, joined_position)
+
+            if args.store:
+                job = Job(joined_company, joined_position, today)
+                Job.store(job)
+        case "read":
+            Job.get_job(joined_company, print_obj=True)
+        case "update":
+            if args.company:
+                update_job("company", args.company)
+            elif args.position:
+                update_job("position", args.position)
+        case "delete":
+            application_num = Job.get_job(args.company, position=args.position)
+
+            if application_num:
+                Job.delete(application_num)
