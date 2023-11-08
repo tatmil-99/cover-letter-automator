@@ -15,8 +15,8 @@ This is the first project I've built out of need and with intent to use. This wa
 
 ## Features
 
-- CRUD functionality of job data using commands in the CLI
-- Long term data persistance for past job entries (feature to come with SQLite) 
+- CRUD functionality of job data stored in dictionary
+- Long term data persistance for past job entries (feature to come with SQLite)
 - File reading and writing for updating cover letter template
 - PDF formatting and generation of cover letter .txt file
 - Option to generate PDF cover letter without storing job data
