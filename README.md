@@ -2,7 +2,7 @@
 
 ## Purpose and summary
 
-This is the first project I've built out of need and with intent to use on a regular basis. This was really educational and enabled me to see how code can be used in my life to automate tasks. This project is far from done, but the gist of it is this: The programs interface is the command-line, which prompts for job specific information. That data, along with the current date, is passed to a function which handles a .txt file (the cover letter). That file is then parsed and relevent information is updated and then output to a PDF in my Downloads folder. Below, I will get more into detail as far as tools and other things go.
+This is the first project I've built out of need and with intent to use. This was really educational and enabled me to see how code can be used in my life to automate tasks. Building my own CLI also allowed me to learn a lot about commands and the CLI in general. Upon execution of the program, an interactive CLI opens with some helpful tips and prompts for job specific information. That data, along with the current date, is passed to a function which handles a .txt file (the cover letter). That file is then parsed and relevent information is updated and then output to a PDF in my Downloads. Below, I will get more into detail as far as tools and other things go.
 
 ## Tools
 
@@ -10,6 +10,7 @@ This is the first project I've built out of need and with intent to use on a reg
 - Git
 - datetime module
 - fpdf module
+- argparse module
 - SQLite (to come)
 
 ## Features
